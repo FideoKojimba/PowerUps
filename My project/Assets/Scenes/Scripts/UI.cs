@@ -85,7 +85,7 @@ public class UI : MonoBehaviour
 
             stats._CaminodelaSerpiente(a);
             _Estado.text= "Sientes la agilidad del leopardo y obtienes " + stats._Speed;
-            if (stats._Speed >= 3.0f)
+            if (stats._Speed >= 100.0f)
                 {
                     _Estado.text= "Te sientes más ligero que nunca";
                 

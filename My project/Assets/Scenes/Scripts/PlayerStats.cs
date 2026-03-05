@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -7,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public float _Speed;
     public bool _Shield;
     public float _DamageBoost;
-    
+    public UI ui;
     void Awake()
     {
         _Vida=1;
@@ -19,15 +20,32 @@ public class PlayerStats : MonoBehaviour
 
     public void _CaminodelaGrulla (float valor)
     {
-        
+        if (_Vida < 10)
+        { 
         _Vida += valor;
+        }
+
+        if (_Vida >= 10)
+        {
+            return;
+        }
 
     }
 
+
+
     public void _CaminodelaSerpiente (float valor)
     {
-        
-        _Speed += valor;
+
+        if (_Speed < 1.0f)
+        {
+            _Speed *= valor;
+        }
+
+        if (_Speed >= 100.0f)
+        {
+            return;
+        }
 
     }
 
