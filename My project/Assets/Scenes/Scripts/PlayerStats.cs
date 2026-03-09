@@ -6,16 +6,14 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float _Vida;
     public float _Speed;
-    public bool _Shield;
-    public float _DamageBoost;
+    public float _Shield;
     public UI ui;
     void Awake()
     {
         _Vida=1;
         _Speed = 1.0f;
-        _Shield = false;
-        _DamageBoost = 1;
-
+        _Shield = 2;    
+     
     }
 
     public void _CaminodelaGrulla (float valor)
@@ -26,7 +24,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         if (_Vida >= 10)
-        {
+        { 
+            _Vida = 10;  
             return;
         }
 
@@ -37,13 +36,14 @@ public class PlayerStats : MonoBehaviour
     public void _CaminodelaSerpiente (float valor)
     {
 
-        if (_Speed < 1.0f)
+        if (_Speed < 1000.0f)
         {
             _Speed *= valor;
         }
 
-        if (_Speed >= 100.0f)
+        if (_Speed >= 1000.0f)
         {
+            _Speed = 1000.0f;
             return;
         }
 
@@ -51,22 +51,41 @@ public class PlayerStats : MonoBehaviour
 
     public void _CaminodelAguila (float valor)
     {
-        if (valor > 0) 
+        if (valor == 1) 
         {
-        _Shield = true;
+        _Shield = 1;
+        return;
+
+        }
+        if (valor == 0)
+        {
+        _Shield = 2;
+        return;
         }
         else
         {
-        _Shield = false;
+        _Shield = 3;
+        return; 
         }
+       
+
+        
         
 
     }
 
-    public void _CaminodelTigre(float valor)
+    public void _takeDamage(float valor)
     {
         
-        _DamageBoost = valor;
+        if (_Shield == 2)
+        {
+            _Vida -= valor;
+        }
+
+         if (_Shield == 1)
+        {
+            return;
+        }
 
     }
 

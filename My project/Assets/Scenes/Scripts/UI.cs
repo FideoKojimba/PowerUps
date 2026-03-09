@@ -11,7 +11,7 @@ public class UI : MonoBehaviour
         Heal,
         Speed_Boost,
         Shield,
-        Damage_Boost
+        Damage
 
     }
 
@@ -40,7 +40,7 @@ public class UI : MonoBehaviour
     public void SeleccionaSpeed_Boost()
     {
         _powerups = PowerUps.Speed_Boost;
-        _Estado.text = "Estilo del leopardo seleccionado";
+        _Estado.text = "Estilo de la serpiente seleccionado";
     }
     public void SeleccionaShield()
     {
@@ -48,10 +48,10 @@ public class UI : MonoBehaviour
         _Estado.text = "Estilo del águila seleccionado";
     }
 
-    public void SelecionaDamageBoost()
+    public void SelecionaDamage()
     {
-        _powerups = PowerUps.Damage_Boost;
-        _Estado.text = "Estilo del tigre seleccionado";
+        _powerups = PowerUps.Damage;
+        _Estado.text = "Preparáte para sufrir";
     }
 
     public void Aplicar()
@@ -84,8 +84,8 @@ public class UI : MonoBehaviour
             case PowerUps.Speed_Boost:
 
             stats._CaminodelaSerpiente(a);
-            _Estado.text= "Sientes la agilidad del leopardo y obtienes " + stats._Speed;
-            if (stats._Speed >= 100.0f)
+            _Estado.text= "Sientes la agilidad de la serpiente y obtienes " + stats._Speed;
+            if (stats._Speed >= 1000.0f)
                 {
                     _Estado.text= "Te sientes más ligero que nunca";
                 
@@ -100,24 +100,51 @@ public class UI : MonoBehaviour
             case PowerUps.Shield:
             stats._CaminodelAguila(a);
             _Estado.text= "Ves todas las debilidades de tu enemigo, no puede hacerte daño";
-            if (stats._Shield == true)
+            if (stats._Shield == 1)
                 {
                     _Estado.text= "Nada te tocará";
                     return;
                 }
 
-            if (stats._Shield == false)
+            if (stats._Shield == 2)
                 {
-                    _Estado.text= "Sientes el dolor de la batalla por tu cuerpo";
+                    _Estado.text= "Estás indefenso";
+                    return;
+                }
+
+            if (stats._Shield == 3)
+                {
+                    _Estado.text= "Utiliza 1 o 0 para activar o desactivar el escudo";
                     return;
                 }
             break;
 
-            case PowerUps.Damage_Boost:
-            stats._CaminodelTigre(a);
-            _Estado.text = "Si tu ferocidad se pudiera calcular sería esta " + stats._DamageBoost;
+            case PowerUps.Damage:
+            stats._takeDamage(a);
+            _Estado.text= "Te golpean";
+            if (stats._Shield == 1)
+                {
+                    _Estado.text= "Esquivas con éxito los ataques";
+                    return;
+                }
 
-            break;
+            if (stats._Shield == 2)
+                {
+                    _Estado.text= "Recibes " + stats._Vida + " de daño";
+                }
+
+             if (stats._Vida <= 0)
+                {
+                    _Estado.text= "No puedes seguir luchando";
+                }
+
+                break;
+
+
+
+
+
+
 
 
 

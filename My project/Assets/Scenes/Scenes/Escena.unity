@@ -284,7 +284,7 @@ MonoBehaviour:
   _Vida: 0
   _Speed: 0
   _Shield: 0
-  _DamageBoost: 0
+  ui: {fileID: 0}
 --- !u!4 &186534340
 Transform:
   m_ObjectHideFlags: 0
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 373750020}
   - component: {fileID: 373750019}
   m_Layer: 5
-  m_Name: Estilo del tigre
+  m_Name: "Da\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 355125495}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: SelecionaDamageBoost
+        m_MethodName: SelecionaDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Estilo del tigre
+  m_text: "Da\xF1o"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2082,7 +2082,7 @@ GameObject:
   - component: {fileID: 1543886406}
   - component: {fileID: 1543886405}
   m_Layer: 5
-  m_Name: Estilo del leopardo
+  m_Name: Estilo de la serpiente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Estilo del leopardo
+  m_text: Estilo de la serpiente
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
