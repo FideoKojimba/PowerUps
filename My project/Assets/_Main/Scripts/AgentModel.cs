@@ -1,11 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class AgentModel : MonoBehaviour
 {
     [SerializeField] private AgentController _agentController;
     [SerializeField] private float _velocidad = 20f;
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private AgentView _agentView;
     
     public void Movimiento()
     {
@@ -16,7 +19,22 @@ public class AgentModel : MonoBehaviour
    
     void Update()
     {
-         
-        Movimiento(); 
+       
+        float veloMax = 10;
+        float veloNormalizada = _rb.angularVelocity.magnitude / veloMax;
+
+         if (_rb.linearVelocity.magnitude < 0.001)
+        {
+            veloNormalizada = 0.001f;
+            _agentView.animator.SetFloat("Velocidad", veloNormalizada);
+        }
+
+         else
+        {
+            _agentView.animator.SetFloat("Velocidad", veloNormalizada);
+            Movimiento();
+        }
+        
     }
 }
+
